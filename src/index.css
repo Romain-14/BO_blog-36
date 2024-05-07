@@ -1,0 +1,271 @@
+:root {
+	--dark-color: #333;
+	--light-color: #fff;
+	--bcg-color: #faebd7;
+	--success-color: #5cb85c;
+	--warning-color: #f0ad4e;
+	--info-color: #5bc0de;
+	--danger-color: #e4443f;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 1.6rem;
+	background-color: var(--bcg-color);
+}
+
+a {
+	text-decoration: none;
+	color: var(--dark-color);
+	display: inline-block;
+	padding: 1rem;
+	text-align: center;
+	font-weight: bold;
+}
+
+header a,
+footer a {
+	color: var(--light-color);
+	position: relative;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+p {
+	text-align: center;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+small {
+	font-weight: 400;
+}
+
+h1,
+h2 {
+	text-align: center;
+}
+
+header,
+footer {
+	background-color: var(--dark-color);
+	color: var(--light-color);
+	padding: 1rem;
+	text-align: center;
+}
+
+main {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 3rem;
+	gap: 2rem;
+	min-width: 71rem;
+}
+
+section {
+	width: 55%;
+}
+
+aside {
+	width: 35%;
+	text-align: center;
+}
+
+/* admin */
+#home a {
+	color: var(--dark-color);
+}
+#home nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+#story h2 + nav,
+#add_story h2 + nav {
+	display: flex;
+	justify-content: center;
+    gap: 2rem;
+}
+
+#story article {
+	display: flex;
+}
+
+#story article p {
+	line-height: 1.6;
+}
+
+#story article nav {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.button {
+	color: var(--light-color);
+	padding: 1rem;
+	text-align: center;
+}
+
+.add-btn,
+.back-btn {
+    color: var(--dark-color);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    width: 25rem;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.add-btn {
+	background-color: var(--success-color);
+}
+
+.back-btn {
+	background-color: var(--warning-color);
+}
+
+.action-col{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+}
+
+.edit-btn,
+.delete-btn,
+.submit-btn {
+	display: inline-block;
+	width: 4rem;
+	border-radius: 1rem;
+    text-transform: uppercase;
+	font-weight: bold;
+    margin: 0;
+}
+
+.edit-btn {
+	background-color: var(--info-color);
+	border: 1px solid #333;
+}
+
+.delete-btn {
+	background-color: var(--danger-color);
+}
+
+.submit-btn {
+	background-color: var(--success-color);
+	border-color: var(--light-color);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin: 2rem auto;
+	padding: 2rem;
+	gap: 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+input,
+textarea {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	font-size: 1.2em;
+	border-radius: 1rem;
+}
+
+form button {
+	background-color: var(--success-color);
+    color: var(--dark-color);
+}
+
+button {
+	background-color: var(--light-color);
+	color: var(--dark-color);
+	margin-top: 2rem;
+	padding: 15px;
+	border-radius: 1rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: var(--light-color);
+	cursor: pointer;
+}
+
+button:disabled {
+	background-color: grey;
+	cursor: not-allowed;
+}
+
+h1 {
+	text-align: center;
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.toast {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	background-color: var(--success-color);
+	color: var(--light-color);
+	padding: 1rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+.confirm-delete {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--light-color);
+	text-transform: uppercase;
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.confirm-delete p {
+	width: 100%;
+}
+.confirm-delete button {
+	width: 100px;
+}
+
+.confirm-delete button:nth-of-type(1) {
+	background-color: var(--danger-color);
+	color: var(--light-color);
+}
+.confirm-delete button:nth-of-type(2) {
+	color: #333;
+}
