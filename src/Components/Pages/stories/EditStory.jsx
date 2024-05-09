@@ -10,16 +10,24 @@ import useLocalStorage from "../../../Hooks/useLocalStorage";
 const DELAY = 1;
 
 function EditStory() {
+	// Utilisation du Hook personnalisé useTitle pour changer le titre de la page
     useTitle("Edit Story");
-    const [storiesList] = useLocalStorage("stories");
+	// Récupération de la liste des stories stockées en localStorage par le Hook personnalisé useLocalStorage
+    const [storiesList, setStoriesList] = useLocalStorage("stories");
+	// utilisation du hook navigate pour programmer la redirection vers la page de liste des stories après avoir valider la modification d'une story
 	const navigate = useNavigate();
+	// récupération de l'id de la story à modifier via le hook useParams transmis par la route dynamique "/admin/story/:id/edit"
 	const { id } = useParams();
 
+	// Initialisation du state pour la story à modifier
 	const [story, setStory] = useState(
+		// find retourne le premier élément du tableau qui correspond à la condition
 		storiesList.find((story) => story.id === parseInt(id))
 	);
+	// Initialisation du state pour connaitre l'etat du formulaire (envoyé ou non)
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
+	// même fonctionnement que pour le composant AddStory
 	useEffect(() => {
 		if (!isSubmitted) return;
 		const idTO = setTimeout(() => {
@@ -29,18 +37,23 @@ function EditStory() {
 		return () => clearTimeout(idTO);
 	}, [isSubmitted, navigate]);
 
+	// fonction exécutée lors de la soumission du formulaire
 	function submitHandler(e) {
 		e.preventDefault();
-
+		// récupération de la story à modifier dans la liste des stories
+		// D'abord récupéré son index (la position dans le tableau ) via findIndex
+		// permets de modifier la story dans le tableau
 		const index = storiesList.findIndex(
 			(story) => story.id === parseInt(id)
 		);
-
+		// ensuite remplacement de la story dans le tableau
 		storiesList[index] = story;
-		localStorage.setItem("stories", JSON.stringify(storiesList));
-
+		// mise à jour de la liste des stories en localStorage en utilisant le setter du Hook personnalisé useLocalStorage
+		setStoriesList(storiesList);
 		setIsSubmitted(true);
 	}
+
+	// à partir d'ici c'est la même chose que pour le composant AddStory
 
 	function onChangeHandler(e) {
 		setStory({

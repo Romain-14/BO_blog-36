@@ -14,9 +14,9 @@ function App() {
 
 			<Routes>
 				<Route path="/admin" element={<Home />} />
-                <Route path="/admin/story/list" element={<StoriesList />} />
-                <Route path="/admin/story/add" element={<AddStory />} />
-                <Route path="/admin/story/:id/edit" element={<EditStory />} />
+                <Route path="admin/story/list" element={<StoriesList />} />
+                <Route path="admin/story/add" element={<AddStory />} />
+                <Route path="admin/story/:id/edit" element={<EditStory />} />
 
 			</Routes>
 

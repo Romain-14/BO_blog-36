@@ -5,6 +5,7 @@ import useLocalStorage from "../../../Hooks/useLocalStorage";
 
 function Table({ setIndexStory, setIsDeleteModalOpen }) {
     const [storiesList] = useLocalStorage("stories");
+	
 	return (
 		<table>
 			<thead>
